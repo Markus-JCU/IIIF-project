@@ -1,10 +1,17 @@
-Mirador.viewer({
-  id: "viewer",
+<script>
+  OpenSeadragon({
+    id: "viewer",
+    prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/images/",
 
-  windows: [
-    {
-      manifestId: "https://markus-jcu.github.io/IIIF-project/manifest.json",
-      sideBarOpen: false
-    }
-  ]
-});
+    tileSources: {
+      type: "image",
+      url: "https://raw.githubusercontent.com/Markus-JCU/IIIF-project/main/Images/NYH1.jpg"
+    },
+
+    showNavigationControl: false,
+    showZoomControl: false,
+    showHomeControl: false,
+    showFullPageControl: false
+  });
+</script>
+``
