@@ -2,67 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NYH IIIF Viewer</title>
+  <title>IIIF Image Viewer</title>
 
-  <!-- Mirador CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/mirador@latest/dist/css/mirador.min.css"
-  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"></script>
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
     }
     #viewer {
+      width: 100vw;
       height: 100vh;
-      width: 100%;
+      background: black;
     }
   </style>
 </head>
 <body>
 
-<header style="padding:10px; background:#222; color:white;">
-  <h2>NYH Image Collection</h2>
-</header> 
-  
 <div id="viewer"></div>
 
-<!-- Mirador JS -->
-<script src="https://unpkg.com/mirador@3.3.0/dist/mirador.min.js"></script>
-
 <script>
-  <script>
-  const miradorInstance = Mirador.viewer({
+  OpenSeadragon({
     id: "viewer",
+    prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/images/",
 
-    windows: [
-      {
-        manifestId: "https://markus-jcu.github.io/IIIF-project/manifest.json",
-        sideBarOpen: false 
-      }
-    ],
-
-    window: {             
-      sideBarOpen: false,
-      views: [
-        { key: "single" }
-      ],
-      panels: {
-        info: false,
-        attribution: false,
-        canvas: false,
-        annotations: false,
-        search: false
-      }
+    tileSources: {
+      "@context": "http://iiif.io/api/image/2/context.json",
+      "@id": "https://markus-jcu.github.io/IIIF-project",  
+      "profile": "http://iiif.io/api/image/2/level2.json"
     },
 
-    workspace: {
-      type: "mosaic"
-    }
+    showNavigationControl: false,   // ✅ no buttons
+    showZoomControl: false,
+    showHomeControl: false,
+    showFullPageControl: false
   });
-</script>
 </script>
 
 </body>
