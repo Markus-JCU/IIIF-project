@@ -1,46 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>IIIF Image Viewer</title>
+<meta charset="UTF-8">
+<title>IIIF Viewer</title>
 
-  <!-- ✅ FIXED: proper script tag -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"></script>
 
-  <style>
-    html, body {
-      margin: 0;
-      height: 100%;
-      overflow: hidden;
-    }
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+  }
 
-    #viewer {
-      width: 100vw;
-      height: 100vh;
-      background: black;
-    }
-  </style>
+  #viewer {
+    width: 100vw;
+    height: 100vh;
+    background: black;
+  }
+
+  /* ✅ Caption overlay */
+  #caption {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 999;
+  }
+
+  /* Optional nav buttons */
+  .nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  #prevBtn { left: 10px; }
+  #nextBtn { right: 10px; }
+</style>
 </head>
 <body>
 
 <div id="viewer"></div>
 
+<div id="caption"></div>
+
+<button id="prevBtn" class="nav-btn">◀</button>
+<button id="nextBtn" class="nav-btn">▶</button>
+
 <script>
-  OpenSeadragon({
+  const images = [
+    "https://markus-jcu.github.io/IIIF-project/Images/NYH1.jpg",
+    "https://markus-jcu.github.io/IIIF-project/Images/NYH2.jpg",
+    "https://markus-jcu.github.io/IIIF-project/Images/NYH3.jpg"
+  ];
+
+  const captions = [
+    "NYH1 – Historical image description here",
+    "NYH2 – Another caption or metadata",
+    "NYH3 – Description, date, location, etc."
+  ];
+
+  let index = 0;
+
+  const viewer = OpenSeadragon({
     id: "viewer",
     prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/images/",
-
     tileSources: {
       type: "image",
-      url: "https://markus-jcu.github.io/IIIF-project/Images/NYH1.jpg"
+      url: images[index]
     },
-
-    showNavigationControl: false,
-    showZoomControl: false,
-    showHomeControl: false,
-    showFullPageControl: false
+    showNavigationControl: false
   });
+
+  function loadImage(i) {
+    viewer.open({
+      type: "image",
+      url: images[i]
+    });
+    document.getElementById("caption").innerText = captions[i];
+  }
+
+  // initialize first image + caption
+  loadImage(index);
+
+  document.getElementById("nextBtn").onclick = () => {
+    index = (index + 1) % images.length;
+    loadImage(index);
+  };
+
+  document.getElementById("prevBtn").onclick = () => {
+    index = (index - 1 + images.length) % images.length;
+    loadImage(index);
+  };
 </script>
 
 </body>
 </html>
+``
