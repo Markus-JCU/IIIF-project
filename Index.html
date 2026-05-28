@@ -33,19 +33,36 @@
 <script src="https://unpkg.com/mirador@3.3.0/dist/mirador.min.js"></script>
 
 <script>
+  <script>
   const miradorInstance = Mirador.viewer({
     id: "viewer",
 
     windows: [
       {
-        manifestId: "https://markus-jcu.github.io/IIIF-project/manifest.json"
+        manifestId: "https://markus-jcu.github.io/IIIF-project/manifest.json",
+        sideBarOpen: false 
       }
     ],
+
+    window: {             
+      sideBarOpen: false,
+      views: [
+        { key: "single" }
+      ],
+      panels: {
+        info: false,
+        attribution: false,
+        canvas: false,
+        annotations: false,
+        search: false
+      }
+    },
 
     workspace: {
       type: "mosaic"
     }
   });
+</script>
 </script>
 
 </body>
