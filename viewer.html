@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Glycerine Viewer</title>
 
+  <!-- CSS -->
+  <link rel="stylesheet"
+    href="https://unpkg.com/glycerine-viewer@latest/jslib/style.css">
+
+  <!-- JS -->
+  <script src="https://unpkg.com/glycerine-viewer@latest/jslib/glycerine-viewer.umd.cjs"></script>
+</head>
+
+<body style="margin:0">
+
+<div id="viewer" style="width:100%; height:100vh;"></div>
+
+<script>
+  // get manifest from URL parameter
+  const params = new URLSearchParams(window.location.search);
+  const manifest = params.get("manifest");
+
+  const ele = document.getElementById('viewer');
+
+  const viewer = new GlycerineViewer(ele, {
+    width: '100%',
+    height: '100%',
+    manifest: manifest
+  });
+
+  viewer.init();
+</script>
+
+</body>
+</html>
+``
