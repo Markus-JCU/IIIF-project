@@ -4,19 +4,7 @@
   <meta charset="UTF-8">
   <title>NYH IIIF Viewer</title>
 
-const miradorInstance = Mirador.viewer({
-  window: {
-    allowClose: false,
-    allowMaximize: false,
-    sideBarOpen: false,
-    views: [
-      { key: 'single' } // removes gallery/thumbnail alternatives
-    ]
-  },
-  workspace: {
-    showZoomControls: true
-  }
-}); 
+
   
   <!-- Mirador CSS -->
   <link
@@ -60,5 +48,19 @@ const miradorInstance = Mirador.viewer({
   });
 </script>
 
+ const miradorInstance = Mirador.viewer({
+  window: {
+    allowClose: false,
+    allowMaximize: false,
+    sideBarOpen: false,
+    views: [
+      { key: 'single' } // removes gallery/thumbnail alternatives
+    ]
+  },
+  workspace: {
+    showZoomControls: true
+  }
+}); 
+  
 </body>
 </html>
