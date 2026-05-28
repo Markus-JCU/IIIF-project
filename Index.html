@@ -23,7 +23,19 @@
 </head>
 <body>
 
- 
+const miradorInstance = Mirador.viewer({
+  window: {
+    allowClose: false,
+    allowMaximize: false,
+    sideBarOpen: false,
+    views: [
+      { key: 'single' } // removes gallery/thumbnail alternatives
+    ]
+  },
+  workspace: {
+    showZoomControls: true
+  }
+}); 
   
 
 
