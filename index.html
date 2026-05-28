@@ -1,3 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IIIF Image Viewer</title>
+
+  <!-- ✅ FIXED: proper script tag -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #viewer {
+      width: 100vw;
+      height: 100vh;
+      background: black;
+    }
+  </style>
+</head>
+<body>
+
+<div id="viewer"></div>
+
 <script>
   OpenSeadragon({
     id: "viewer",
@@ -14,3 +41,6 @@
     showFullPageControl: false
   });
 </script>
+
+</body>
+</html>
