@@ -16,28 +16,13 @@
   #viewer {
     height: 100vh;
   }
-/* Hide Pages button */
-.tify-pages {
-  display: none !important;
-}
 
-/* Hide Export button */
-.tify-export {
-  display: none !important;
-}
-
-/* Hide Help button */
-.tify-help {
-  display: none !important;
-}
-
-/* Hide Fullscreen button */
-.tify-fullscreen {
-  display: none !important;
-}
-
-/* Hide Double-page toggle */
-.tify-page-mode {
+/* Hide specific buttons via title attribute */
+button[title="Pages"],
+button[title="Export"],
+button[title="Help"],
+button[title="Fullscreen"],
+button[title="Toggle double page"] {
   display: none !important;
 }
 
