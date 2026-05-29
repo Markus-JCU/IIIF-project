@@ -26,15 +26,6 @@
                 "id": "https://markus-jcu.github.io/IIIF-project/Images/NYH1.jpg",
                 "type": "Image",
                 "format": "image/jpeg",
-
-                "service": [
-                  {
-                    "id": "https://markus-jcu.github.io/IIIF-project/Images/NYH1.jpg",
-                    "type": "ImageService3",
-                    "profile": "level1"
-                  }
-                ],
-
                 "height": 4300,
                 "width": 2968
               },
