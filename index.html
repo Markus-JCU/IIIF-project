@@ -2,41 +2,41 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>IIIF Viewer</title>
+<title>Mirador Viewer</title>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/mirador@3.3.0/dist/css/mirador.min.css">
+<script src="https://unpkg.com/mirador@3.3.0/dist/mirador.min.js"></script>
 
 <style>
   html, body {
     margin: 0;
     height: 100%;
-    overflow: hidden;
   }
 
   #viewer {
-    width: 100vw;
     height: 100vh;
-    background: black;
+  }
+
+  /* ✅ Hide Mirador UI */
+  .MuiAppBar-root,
+  .MuiDrawer-root,
+  .MuiButtonBase-root[title="Toggle sidebar"] {
+    display: none !important;
   }
 
   /* ✅ Caption overlay */
   #caption {
     position: fixed;
-    text-align: center;
-    bottom: 10%;
-    width: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 6px;
-    background: rgba(0, 0, 0, 0.6);
-    color: orange;
-    font-size: 16px;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
     padding: 10px 20px;
-    box-sizing: border-box;
+    font-size: 16px;
     z-index: 999;
   }
 
-  /* Optional nav buttons */
+  /* ✅ Navigation buttons */
   .nav-btn {
     position: fixed;
     top: 50%;
@@ -54,62 +54,66 @@
   #nextBtn { right: 10px; }
 </style>
 </head>
+
 <body>
 
 <div id="viewer"></div>
-
 <div id="caption"></div>
 
 <button id="prevBtn" class="nav-btn">◀</button>
 <button id="nextBtn" class="nav-btn">▶</button>
 
 <script>
-  const images = [
-    "https://markus-jcu.github.io/IIIF-project/Images/NYH1.jpg",
-    "https://markus-jcu.github.io/IIIF-project/Images/NYH2.jpg",
-    "https://markus-jcu.github.io/IIIF-project/Images/NYH3.jpg"
-  ];
+  const manifestUrl = "https://markus-jcu.github.io/IIIF-project/manifest.json";
 
   const captions = [
-    "NYH1 – Historical image description here",
-    "NYH2 – Another caption or metadata",
-    "NYH3 – Description, date, location, etc."
+    "NYH1 – Historical image description",
+    "NYH2 – Add your second caption",
+    "NYH3 – Add your third caption"
   ];
 
-  let index = 0;
+  let currentIndex = 0;
+  let miradorInstance;
 
-  const viewer = OpenSeadragon({
-    id: "viewer",
-    prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/images/",
-    tileSources: {
-      type: "image",
-      url: images[index]
-    },
-    showNavigationControl: false
-  });
-
-  function loadImage(i) {
-    viewer.open({
-      type: "image",
-      url: images[i]
+  function loadCanvas(index) {
+    miradorInstance.store.dispatch({
+      type: 'SET_CANVAS',
+      windowId: 'window-1',
+      canvasId: manifestUrl + '/canvas/p' + (index + 1)
     });
-    document.getElementById("caption").innerText = captions[i];
+
+    document.getElementById("caption").innerText = captions[index];
   }
 
-  // initialize first image + caption
-  loadImage(index);
+  // ✅ Create Mirador
+  miradorInstance = Mirador.viewer({
+    id: "viewer",
 
+    windows: [
+      {
+        id: "window-1",
+        manifestId: manifestUrl,
+        sideBarOpen: false
+      }
+    ]
+  });
+
+  // ✅ Wait a moment for Mirador to load
+  setTimeout(() => {
+    document.getElementById("caption").innerText = captions[0];
+  }, 1000);
+
+  // ✅ Navigation
   document.getElementById("nextBtn").onclick = () => {
-    index = (index + 1) % images.length;
-    loadImage(index);
+    currentIndex = (currentIndex + 1) % captions.length;
+    loadCanvas(currentIndex);
   };
 
   document.getElementById("prevBtn").onclick = () => {
-    index = (index - 1 + images.length) % images.length;
-    loadImage(index);
+    currentIndex = (currentIndex - 1 + captions.length) % captions.length;
+    loadCanvas(currentIndex);
   };
 </script>
 
 </body>
 </html>
-``
