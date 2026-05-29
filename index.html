@@ -8,24 +8,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.css">
 
 <style>
-  html, body {
-    margin: 0;
-    height: 100%;
-  }
+html, body {
+  margin: 0;
+  height: 100%;
+}
 
-  #viewer {
-    height: 100vh;
-  }
+#viewer {
+  height: 100vh;
+}
 
-/* Hide specific buttons via title attribute */
-button[title="Pages"],
-button[title="Export"],
-button[title="Help"],
-button[title="Fullscreen"],
-button[title="Toggle double page"] {
+/* ✅ WORKING UI HIDE */
+.tify-header button {
   display: none !important;
 }
 
+/* optional */
+.tify-sidebar {
+  display: none !important;
+}
 </style>
 </head>
 
