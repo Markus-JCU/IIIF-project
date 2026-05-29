@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Mirador Viewer</title>
+<title>TIFY Viewer</title>
 
-<!-- ✅ CSS -->
-<link rel="stylesheet" href="https://unpkg.com/mirador@3.3.0/dist/css/mirador.min    margin: 0;
+<!-- ✅ TIFY CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.css">
+
+<style>
+  html, body {
+    margin: 0;
     height: 100%;
   }
 
-  #viewer {
+  #tify {
     height: 100vh;
   }
 </style>
@@ -17,19 +21,17 @@
 
 <body>
 
-<div id="viewer"></div>
+<div id="tify"></div>
 
-<!-- ✅ JS -->
-<script src="https://unpkg.com/mirador@3.3.0/dist/mir<script>
-  Mirador.viewer({
-    id: "viewer",
+<!-- ✅ TIFY JS -->
+<script src="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.js"></script>
 
-    windows: [
-      {
-        manifestId: "https://markus-jcu.github.io/IIIF-project/manifest.json",
-        sideBarOpen: false
-      }
-    ]
+<script>
+  new Tify({
+    container: '#tify',
+
+    // ✅ THIS is where your manifest goes
+    manifestUrl: 'https://markus-jcu.github.io/IIIF-project/manifest.json'
   });
 </script>
 
