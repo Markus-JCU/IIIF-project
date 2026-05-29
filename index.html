@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <title>TIFY Viewer</title>
 
-<!-- ✅ REQUIRED CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify    margin: 0;
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.css">
+
+<style>
+  html, body {
+    margin: 0;
     height: 100%;
   }
 
@@ -17,18 +20,17 @@
 
 <body>
 
-<!-- ✅ IMPORTANT: ID must match JS -->
 <div id="viewer"></div>
 
-<!-- ✅ REQUIRED JS -->
-<script src="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.jscript>
-  console.log("TIFY loading...");
+<script src="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.js"></script>
 
+<script>
   new Tify({
     container: '#viewer',
     manifestUrl: 'https://markus-jcu.github.io/IIIF-project/manifest.json'
-  });'''
+  });
 </script>
 
 </body>
 </html>
+``
