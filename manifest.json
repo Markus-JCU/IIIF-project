@@ -6,7 +6,7 @@
 
   "items": [
     {
-      "id": "https://example.org/canvas/nyh1",
+      "id": "https://markus-jcu.github.io/IIIF-project/canvas/nyh1",
       "type": "Canvas",
       "label": { "en": ["NYH1"] },
       "height": 4300,
@@ -14,14 +14,13 @@
 
       "items": [
         {
-          "id": "https://example.org/page/nyh1",
+          "id": "https://markus-jcu.github.io/IIIF-project/page/nyh1",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "https://example.org/annotation/nyh1",
+              "id": "https://markus-jcu.github.io/IIIF-project/annotation/nyh1",
               "type": "Annotation",
               "motivation": "painting",
-              "target": "https://example.org/canvas/nyh1",
 
               "body": {
                 "id": "https://markus-jcu.github.io/IIIF-project/Images/NYH1.jpg",
@@ -29,6 +28,11 @@
                 "format": "image/jpeg",
                 "height": 4300,
                 "width": 2968
+              },
+
+              "target": {
+                "id": "https://markus-jcu.github.io/IIIF-project/canvas/nyh1",
+                "type": "Canvas"
               }
             }
           ]
