@@ -17,19 +17,28 @@ html, body {
   height: 100vh;
 }
 
+/* hide UI buttons */
+.tify-header button {
+  display: none !important;
+}
+  
  /* Increase height of title bar */
 .tify-header {
   height: 70px !important;
   min-height: 70px !important;
   padding: 10px 20px !important;
   display: flex;
-  align-items: center;      /* keeps content vertically centered */
+  align-items: center;
+  position: relative;
 }
  
-/* hide UI buttons */
-.tify-header button {
-  display: none !important;
+
+/* Center the title text */
+.tify-header-title {
+  text-align: center;
+  flex: 1;
 }
+
 </style>
 </head>
 
