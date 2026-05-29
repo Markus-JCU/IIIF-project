@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>TIFY TEST</title>
+<title>TIFY Viewer</title>
 
+<!-- ✅ TIFY CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.css">
 
 <style>
@@ -11,6 +12,7 @@
     margin: 0;
     height: 100%;
   }
+
   #viewer {
     height: 100vh;
   }
@@ -21,15 +23,14 @@
 
 <div id="viewer"></div>
 
+<!-- ✅ TIFY JS -->
 <script src="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.js"></script>
 
 <script>
-  console.log("SCRIPT RUNNING");
-
-  alert("JS LOADED");   // ✅ forces visible test
-
   new Tify({
     container: '#viewer',
+
+    // ✅ use LOCAL manifest (important!)
     manifestUrl: 'manifest.json'
   });
 </script>
