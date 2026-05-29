@@ -20,6 +20,7 @@
             {
               "@type": "oa:Annotation",
               "motivation": "sc:painting",
+
               "resource": {
                 "@id": "https://markus-jcu.github.io/IIIF-project/Images/NYH1.jpg",
                 "@type": "dctypes:Image",
@@ -27,6 +28,7 @@
                 "height": 4300,
                 "width": 2968
               },
+
               "on": "https://markus-jcu.github.io/IIIF-project/canvas/nyh1"
             }
           ]
