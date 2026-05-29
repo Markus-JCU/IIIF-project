@@ -1,6 +1,6 @@
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@id": "https://markus-jcu.github.io/IIIF-project/manifest.json",
+  "@id": "manifest.json",
   "@type": "sc:Manifest",
 
   "label": "NYH Image Collection",
@@ -10,7 +10,7 @@
       "@type": "sc:Sequence",
       "canvases": [
         {
-          "@id": "https://markus-jcu.github.io/IIIF-project/canvas/nyh1",
+          "@id": "canvas/nyh1",
           "@type": "sc:Canvas",
           "label": "NYH1",
           "height": 4300,
@@ -22,14 +22,14 @@
               "motivation": "sc:painting",
 
               "resource": {
-                "@id": "https://markus-jcu.github.io/IIIF-project/Images/NYH1.jpg",
+                "@id": "Images/NYH1.jpg",
                 "@type": "dctypes:Image",
                 "format": "image/jpeg",
                 "height": 4300,
                 "width": 2968
               },
 
-              "on": "https://markus-jcu.github.io/IIIF-project/canvas/nyh1"
+              "on": "canvas/nyh1"
             }
           ]
         }
