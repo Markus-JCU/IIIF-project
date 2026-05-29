@@ -1,36 +1,33 @@
 {
-  "@context": "http://iiif.io/api/presentation/3/context.json",
-  "id": "https://markus-jcu.github.io/IIIF-project/manifest.json",
-  "type": "Manifest",
-  "label": { "en": ["NYH Image Collection"] },
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "https://markus-jcu.github.io/IIIF-project/manifest.json",
+  "@type": "sc:Manifest",
 
-  "items": [
+  "label": "NYH Image Collection",
+
+  "sequences": [
     {
-      "id": "https://markus-jcu.github.io/IIIF-project/canvas/nyh1",
-      "type": "Canvas",
-      "label": { "en": ["NYH1"] },
-      "height": 4300,
-      "width": 2968,
-
-      "items": [
+      "@type": "sc:Sequence",
+      "canvases": [
         {
-          "id": "https://markus-jcu.github.io/IIIF-project/page/nyh1",
-          "type": "AnnotationPage",
-          "items": [
-            {
-              "id": "https://markus-jcu.github.io/IIIF-project/annotation/nyh1",
-              "type": "Annotation",
-              "motivation": "painting",
+          "@id": "https://markus-jcu.github.io/IIIF-project/canvas/nyh1",
+          "@type": "sc:Canvas",
+          "label": "NYH1",
+          "height": 4300,
+          "width": 2968,
 
-              "body": {
-                "id": "https://markus-jcu.github.io/IIIF-project/Images/NYH1.jpg",
-                "type": "Image",
+          "images": [
+            {
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://markus-jcu.github.io/IIIF-project/Images/NYH1.jpg",
+                "@type": "dctypes:Image",
                 "format": "image/jpeg",
                 "height": 4300,
                 "width": 2968
               },
-
-              "target": "https://markus-jcu.github.io/IIIF-project/canvas/nyh1"
+              "on": "https://markus-jcu.github.io/IIIF-project/canvas/nyh1"
             }
           ]
         }
