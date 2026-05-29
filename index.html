@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>TIFY Viewer</title>
+<title>TIFY TEST</title>
 
-<!-- ✅ CORRECT CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/t {
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.css">
+
+<style>
+  html, body {
     margin: 0;
     height: 100%;
   }
-
   #viewer {
     height: 100vh;
   }
@@ -20,12 +21,16 @@
 
 <div id="viewer"></div>
 
-<!-- ✅ CORRECT JS -->
-<script src="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.jsconsole.log("TIFY loading...");
+<script src="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.js"></script>
+
+<script>
+  console.log("SCRIPT RUNNING");
+
+  alert("JS LOADED");   // ✅ forces visible test
 
   new Tify({
     container: '#viewer',
-    manifestUrl: 'manifest.json'   /* ✅ use local path */
+    manifestUrl: 'https://iiif.harvardartmuseums.org/manifests/object/299843'
   });
 </script>
 
