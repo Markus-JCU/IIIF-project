@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Mirador Viewer</title>
 
-<!-- ✅ Mirador CSS -->
+<!-- ✅ CSS -->
 <link rel="stylesheet" href="https://unpkg.com/mirador@3.3.0/dist/css/mirador.min    margin: 0;
     height: 100%;
   }
@@ -19,19 +19,14 @@
 
 <div id="viewer"></div>
 
-<!-- ✅ Mirador JS -->
-<script src="https://unpkg.com/mirador@3.3.0.min.js</script>
-
-<script>
-  const miradorInstance = Mirador.viewer({
+<!-- ✅ JS -->
+<script src="https://unpkg.com/mirador@3.3.0/dist/mir<script>
+  Mirador.viewer({
     id: "viewer",
 
     windows: [
       {
-        // ✅ THIS is where your manifest goes
         manifestId: "https://markus-jcu.github.io/IIIF-project/manifest.json",
-
-        // optional
         sideBarOpen: false
       }
     ]
