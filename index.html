@@ -4,10 +4,8 @@
 <meta charset="UTF-8">
 <title>TIFY Viewer</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.css">
-
-<style>
-  html, body {
+<!-- ✅ CORRECT CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/t {
     margin: 0;
     height: 100%;
   }
@@ -22,15 +20,14 @@
 
 <div id="viewer"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.js"></script>
+<!-- ✅ CORRECT JS -->
+<script src="https://cdn.jsdelivr.net/npm/tify@0.29.0/dist/tify.jsconsole.log("TIFY loading...");
 
-<script>
   new Tify({
     container: '#viewer',
-    manifestUrl: 'https://markus-jcu.github.io/IIIF-project/manifest.json'
+    manifestUrl: 'manifest.json'   /* ✅ use local path */
   });
 </script>
 
 </body>
 </html>
-``
